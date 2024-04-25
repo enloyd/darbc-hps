@@ -10,14 +10,14 @@
 	<div class="row" >
 		<div class="col-lg-8" style="margin:0px;padding: 0px;float:right;">
 			<div class="col-sm-6">
-				 <label>Location::</label> 
+				 <label>Location:</label> 
 		              <select class="form-control " name="LOCATION" id="LOCATION" style="width: 100%;"> 
-			            <option  >BUENAVISTA LOOC CEMETERY</option> 
-			            <option >PUNTA LOOC CEMETERY</option>
+			            <option  >VILLAGE 8</option> 
+			            <option >VILLAGE 9</option>
 			          </select>  
 			</div>
 			<div class="col-sm-2">
-				<label>Section::</label> 
+				<label>Block:</label> 
 		              <select class="form-control " name="SECTION" id="SECTION" style="width: 100%;"> 
 			            <?php   
 			              $query = "SELECT * FROM   `tblcategory` ORDER BY CATEGORIES ASC";
@@ -46,11 +46,11 @@
 <div class="row">
 <span id="printout">
 	<div class="col-md-12">
-	<div style="text-align: center;font-size: 16px;">Looc Cemetery</div>
-	<div style="text-align: center;font-size: 14px;">Looc Romblon Cemetery, Looc, Romblon</div>
-	<div style="text-align: center;font-size: 20px">List of Deceased Person</div>
+	<div style="text-align: center;font-size: 16px;">Dolefil Agrarian Reform Beneficiaries Cooperative</div>
+	<div style="text-align: center;font-size: 14px;">Complex Bldg, Bgy.Cannery Site, Polomolok South Cotabato 9504, Philippines.</div>
+	<div style="text-align: center;font-size: 20px">List of Beneficiaries</div>
 	<div style="text-align: center;font-size: 12px;"><?php echo isset($_POST['TYPES']) ? $_POST['TYPES']:"";  ?></div> 
-	<div style="text-align: center;font-size: 12px;"><?php echo isset($_POST['LOCATION']) ? "Cemtery of ".$_POST['LOCATION']  :"";  ?></div> 
+	<div style="text-align: center;font-size: 12px;"><?php echo isset($_POST['LOCATION']) ? "Lot of:".$_POST['LOCATION']  :"";  ?></div> 
 	<div style="text-align: center;font-size: 12px;"><?php echo isset($_POST['SECTION']) ? "Section :".$_POST['SECTION']  :"";  ?>  </div> 
 	<form class="" method="POST" action="printreport.php" target="_blank">
 <div style="margin: 0px 0px 15px 0px">  
@@ -67,11 +67,14 @@
 					
 				  <thead>
 				  	<tr>
-				  		<th>Grave #</th> 
-				  		<th>Name of the Deceased</td>
+				  		<th>Lot No.</th> 
+				  		<th>Name of Beneficiary</td>
 				  		<th>Born</th>
-				  		<th>Died</th>  
-				  		<th>Section</th>   
+						<th>Age</th>
+						<th>Address</th>
+						<th>Contact_number</th>
+				  		<th>Joined</th>  
+				  		<th>Block</th>   
 				  		<th>Location</th>  
 				  	</tr>	
 				  </thead> 	
@@ -94,6 +97,9 @@
 				  		echo '<td width="8%" align="center">'. $result->GRAVENO.'</td>';  
 				  	    echo '<td> '.$result->FNAME.'</td>';
 				  		echo '<td>'. $borndate.'</td>'; 
+						echo '<td>'. $result->AGE.'</td>';
+						echo '<td>'. $result->ADDRESS.'</td>';
+						echo '<td>'. $result->CONTACT_NUMBER.'</td>'; 
 				  		echo '<td>'. $dieddate.'</td>';
 				  		echo '<td>'. $result->CATEGORIES.'</td>'; 
 				  		echo '<td>'. $result->LOCATION.'</td>'; 

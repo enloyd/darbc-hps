@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Route</title>
+    <link rel="icon" href="img/darbc.png" type="image/x-icon" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.css"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="map" style="width: 100%; height: 100vh"></div>
+    <!-- leaflet js cdn-->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!--leaflet routing machine -->
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <!--leaflt geocoder/search-->
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <!--leaflet draw cdn-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.js"></script>
+    <script>
+      //initialize map--> points to linan tupi(village 8)
+      var map = L.map("map").setView(
+        [6.365246999602172, 124.97377668188821],
+        16
+      );
+      mapLink = "<a href='http://openstreetmap.org'>OpenStreetMap</a>";
+      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
+        attribution: "Leaflet &copy; " + mapLink + ", contribution",
+        maxZoom: 18,
+      }).addTo(map);
+
+      // Icon for permanent house
+      var houseIcon = L.icon({
+        iconUrl: "img/house.png",
+        iconSize: [50, 50],
+      });
+
+      // Marker for permanent house
+      var houseMarker = L.marker([6.365246999602172, 124.97377668188821], {
+        icon: houseIcon,
+      }).addTo(map);
+      var popup = houseMarker.bindPopup("Village ").openPopup();
+      popup.addTo(map);
+
+      // Icon for person
+      var personIcon = L.icon({
+        iconUrl: "img/person.png",
+        iconSize: [50, 50],
+      });
+
+      // Marker for person
+      var marker = L.marker([6.365246999602172, 124.97377668188821], {
+        icon: personIcon,
+      }).addTo(map);
+      //var popup = marker.bindPopup("Village 8").openPopup();
+      //popup.addTo(map);
+
+      var routingControl = null; // Reference to the routing control
+
+      //map click event
+      map.on("click", function (e) {
+        console.log(e);
+
+        if (routingControl) {
+          map.removeControl(routingControl); // Remove the previous route
+        }
+
+        //Routing control waypoints(from address or current loc to village 8)
+        routingControl = L.Routing.control({
+          waypoints: [
+            L.latLng(e.latlng.lat, e.latlng.lng),
+            L.latLng(6.365246999602172, 124.97377668188821),
+          ],
+        })
+          .on("routesfound", function (e) {
+            var routes = e.routes;
+            console.log(routes);
+
+            e.routes[0].coordinates.forEach(function (coord, index) {
+              setTimeout(function () {
+                marker.setLatLng([coord.lat, coord.lng]);
+              }, 10 * index); //Sets route speed
+            });
+          })
+          .addTo(map);
+      });
+
+      //leaflet search
+      L.Control.geocoder().addTo(map);
+      /*
+      //leaflet draw
+      var drawnFeatures = new L.FeatureGroup();
+      map.addLayer(drawnFeatures);
+      //edit function
+      var drawControl = new L.Control.Draw({
+        edit: {
+          featureGroup: drawnFeatures,
+          remove: false,
+        },
+      });
+      map.addControl(drawControl);
+
+      //save drawn
+      map.on("draw:created", function (e) {
+        var type = e.layerType;
+        var layer = e.layer;
+        console.log(e);
+        drawnFeatures.addLayer(layer);
+      });*/
+    </script>
+  </body>
+</html>

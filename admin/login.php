@@ -45,7 +45,7 @@ if (isset($_POST['btnLogin'])) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Cemetery Mapping and Information System</title>
+<title>DARBC Housing Profiling System</title>
 
 <!-- Bootstrap core CSS -->
 <link href="<?php echo web_root; ?>css/bootstrap.min.css" rel="stylesheet">
@@ -59,7 +59,7 @@ if (isset($_POST['btnLogin'])) {
 <script type="text/javascript" language="javascript" src="<?php echo web_root; ?>js/jquery.js"></script>
 <script type="text/javascript" language="javascript" src="<?php echo web_root; ?>js/jquery.dataTables.js"></script>
 <!-- <script type="text/javascript" language="javascript" src="<?php echo web_root; ?>js/fixnmix.js"></script> / -->
- <link rel="icon" href="<?php echo web_root; ?>img/favicon.ico" type="image/x-icon">  
+ <link rel="icon" href="<?php echo web_root; ?>img/darbc.png=" type="image/png">  
 
 
 <style>
@@ -154,10 +154,17 @@ form[role=login] {
     
     <div class="col-md-4">
 
-      <section class="login-form"> <? echo check_message(); ?>;
+      <section class="login-form"> <? echo check_message(); ?>
         <form method="post" action="" role="login">
           <!-- <img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive" alt="" /> -->
-           <img src="../img/adminloginlogo2.png" height="25px" class="img-responsive" alt="" />
+           <img src="../img/darbc_logo.png" height="25px" class="img-responsive" alt=""; style= "animation: spin 5s linear infinite alternate; transform: scaleX(-1);" />
+           <style>
+              @keyframes spin {
+                  0% { transform: rotateY(0deg); }
+                  100% { transform: rotateY(180deg); }
+              }
+            </style>
+     
          
           <input type="input" name="user_email" placeholder="Username" required class="form-control input-lg" value="" />
           
@@ -184,8 +191,7 @@ form[role=login] {
       
 
   </div>
-  
-     
+
   
   
 </div>

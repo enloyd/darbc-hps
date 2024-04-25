@@ -47,7 +47,7 @@ function doInsert(){
 
 					    if ($cur->GRAVENO== $_POST['GRAVENO']) {
 					    	# code...
-					    	message("Grave number is already exists!","error");
+					    	message("Lot number is already exists!","error");
 							redirect('index.php?view=add');
 					    }else{
 
@@ -61,6 +61,9 @@ function doInsert(){
 						// $p->MNAME 		= $_POST['MNAME'];
 						$p->CATEGORIES  = $_POST['CATEGORIES'];
 						$p->BORNDATE	= $borndate;
+						$p->AGE = $_POST['AGE']; 
+						$p->ADDRESS = $_POST['ADDRESS'];
+						$p->CONTACT_NUMBER = $_POST['CONTACT_NUMBER'];
 						$p->DIEDDATE	= $dieddate; 
 						$p->LOCATION 	= $_POST['LOCATION'];
 						$p->GRAVENO		= $_POST['GRAVENO']; 
@@ -74,7 +77,7 @@ function doInsert(){
 
 
 
-						message("New Record created successfully!", "success");
+						message("New Record Created Successfully!", "success");
 						redirect("index.php");
 
 					    }
@@ -102,6 +105,9 @@ function doInsert(){
 						// $p->MNAME 		= $_POST['MNAME'];
 						$p->CATEGORIES  = $_POST['CATEGORIES'];
 						$p->BORNDATE	= $borndate;
+					 	$p->AGE = $_POST['AGE'];
+						$p->ADDRESS	= $_POST['ADDRESS'];
+						$p->CONTACT_NUMBER = $_POST['CONTACT_NUMBER'];
 						$p->DIEDDATE	= $dieddate; 
 						$p->GRAVENO		= $_POST['GRAVENO']; 
 						$p->LOCATION 	= $_POST['LOCATION'];

@@ -30,14 +30,14 @@ switch ($action) {
 
 		if ( $_POST['CATEGORY'] == "" ) {
 			$messageStats = false;
-			message("All field is required!","error");
+			message("Field Is Required!","error");
 			redirect('index.php?view=add');
 		}else{	
 			$category = New Category();
 			$category->CATEGORIES	= $_POST['CATEGORY'];
 			$category->create();
 
-			message("New Section created successfully!", "success");
+			message("New Block Created Successfully!", "success");
 			redirect("index.php");
 			
 		}
@@ -52,7 +52,7 @@ switch ($action) {
 			$category->CATEGORIES	= $_POST['CATEGORY'];
 			$category->update($_POST['CATEGID']);
 
-			message("Section has been updated!", "success");
+			message("Block Has Been Updated!", "success");
 			redirect("index.php");
 		}
 
@@ -70,7 +70,7 @@ switch ($action) {
 			$category = New Category();
 			$category->delete($id);
 
-			message("Section already Deleted!","info");
+			message("Block Already Deleted!","info");
 			redirect('index.php');
 
 		// $id = $_POST['selector'];

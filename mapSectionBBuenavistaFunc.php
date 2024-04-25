@@ -1,4 +1,4 @@
-<style type="text/css">
+<!--<style type="text/css">
 	.grave{
 		/*font-size: 12px;*/
 		width: 100%;
@@ -29,9 +29,10 @@
 		background-color: #f66c7c;
 		color: #fff;
 	}
-</style>
+</style>-->
 
 <?php
+/*
 function retrieveData_ASC_Horizontal_B($gravenofrom=0,$gravenoto=0){
 	$sql = "SELECT * FROM tblpeople WHERE CATEGORIES='B' AND LOCATION='BUENAVISTA LOOC CEMETERY'   AND GRAVENO >= {$gravenofrom} AND GRAVENO <= {$gravenoto} GROUP BY GRAVENO ORDER BY GRAVENO ASC";
 	loadDatas_B_Buenavista($sql);
@@ -220,5 +221,5 @@ function loadDatas_B_Buenavista($sql=""){
 			}
 			echo '</table>';
 }
-
+*/
 ?>

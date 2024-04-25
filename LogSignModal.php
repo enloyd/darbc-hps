@@ -71,7 +71,7 @@
 
                        </div>
                         <div class="panel-footer">
-                            <p align="left">&copy; Southern Negros Printhaus</p>
+                            <p align="left">&copy; Dolefil Agrarian Reform Beneficiaries Cooperative</p>
                         </div> 
                     </div> 
                   </div>

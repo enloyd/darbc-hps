@@ -22,7 +22,7 @@ switch ($view) {
 		break;
 
 	case 'person' :
-        $title="Deceased Person";	
+        $title="Beneficiaries";	
 		$content='person.php';		
 		break;
   

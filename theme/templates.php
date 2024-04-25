@@ -23,13 +23,12 @@
 <link href="<?php echo web_root; ?>css/ekko-lightbox.css" rel="stylesheet">
  <link href="<?php echo web_root; ?>css/modern.css" rel="stylesheet">
  <link href="<?php echo web_root; ?>css/costum.css" rel="stylesheet">
- <link rel="icon" href="<?php echo web_root; ?>img/favicon.ico" type="image/x-icon">  
- 
+ <link rel="icon" href="<?php echo web_root; ?>img/darbc.png" type="image/x-icon">  
+
  <style type="text/css">
 
 .p {
-
-  color: white;
+  color: #ffff;
    margin-bottom: 0;
   margin-top: 0;
   /*padding: 0;*/
@@ -38,7 +37,7 @@
 }
 
 .p > a { 
-  color: white;
+  color: #ffff;
   /*text-align: center;*/
   margin-bottom: 0;
   margin: 0;
@@ -97,8 +96,11 @@ if (isset($_SESSION['gcCart'])){
 </script>
 </head>
 
-<body style="background-color:#e0e4e5" onload="totalprice()" >
-
+<body style="background-color:#C1C4A7; 
+<!--background-image:url('img/background.jpg');
+background-size: none;-->
+" onload="totalprice()" > <!--#B5651d-->
+<!--
 <div class="navbar-fixed-top navbar-inverse  "    role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -113,7 +115,7 @@ if (isset($_SESSION['gcCart'])){
 
         <ul class="navbar-nav p navbar-left tooltip-demo" style="margin-left:-8%;"> 
             <li class="dropdown dropdown-toggle ">
-              <a  data-toggle="tooltip" data-placement="bottom" title="Cemetery Mapping and Information System"   href="#"> 
+              <a  data-toggle="tooltip" data-placement="bottom" title="DARBC Housing Profiling System"   href="#"> 
                <i class="fa fa-info fa-fw"> </i>   
               </a>
             </li> 
@@ -123,13 +125,13 @@ if (isset($_SESSION['gcCart'])){
 
   </div>
 </div>
+-->
 
-
- <div class=" " style=" margin-top:-2%"> 
+ <div class=" " style=" margin-top:-5.5%"> 
   <!-- <div class="col-md-10 col-md-offset-1 " >  -->
  
    
-    <div class="col-md-12" style="margin-bottom: 9px; ">
+    <div class="col-md-12" style="margin-bottom: 0px; ">
      <div class="row ">
         <?php require_once 'banner.php'; ?>
      </div>  
@@ -137,7 +139,7 @@ if (isset($_SESSION['gcCart'])){
 
    </div>
 
- <div class="navbar navbar-static-top navbar-inverse  "    role="navigation">
+ <div class="navbar navbar-static-top navbar-inverse" role="navigation" style="background-color:#A48861"> <!--#008000-->
     
       <div class="container ">
         <div class="navbar-header"> 
@@ -148,30 +150,54 @@ if (isset($_SESSION['gcCart'])){
             <span class="icon-bar"></span>
           </button> 
 
-       <!--  <a class="navbar-brand"  href="<?php echo web_root; ?>index.php" title="View Sites">GC Appliance Centrum Corp</a> -->
+       <!--  <a class="navbar-brand"  href="/*<?php echo web_root; ?>index.php" title="View Sites">GC Appliance Centrum Corp</a> -->
         </div>
 <?php
   
-  ?>
-        <div class="collapse navbar-collapse bigMenu" style="float:left" > 
-          <!-- <ul class="nav navbar-nav" style="margin-left:-4%;"    >  -->
+?>          
+          <!--<div class="collapse navbar-collapse bigMenu" style="float:left">-->
+          <style>
+ 
+  .navbar-nav li {
+    margin: 0 15px;
+    color: #ffff;
+    font-family: Arial, sans-serif;
+  }
 
-          <ul class="nav navbar-nav" > 
-            <li class="dropdown dropdown-toggle <?php echo ($_GET['q']=='') ? "active" : false;?> ">
-              <a href="<?php echo web_root.'index.php'; ?>"> Home</a>
-            </li>
-            <li class="dropdown dropdown-toggle <?php echo ($_GET['q']=='person') ? "active" : false;?> ">
-              <a href="<?php echo web_root.'index.php?q=person'; ?>"> Deceased Person</a>
-            </li>
-            <li class="dropdown-toggle <?php echo ($_GET['q']=='contact') ? "active" : false;?>">
-              <a href="<?php echo web_root.'index.php?q=contact';  ?>"> Contact Us</a>
-            </li>
-             <li class="dropdown-toggle <?php echo ($_GET['q']=='about') ? "active" : false;?>">
-              <a href="<?php echo web_root.'index.php?q=about';  ?>"> About Us</a>
-            </li>
-           
-          </ul>           
-        </div> 
+  .navbar-nav li a {
+    text-decoration: none;
+    color: white !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .navbar-nav li a:hover {
+  color: #C1C4A7 !important; 
+  text-decoration: none;
+
+}
+
+</style>
+
+<div class="collapse navbar-collapse bigMenu" style="float: none; margin: 0 auto; width: fit-content;">
+  <ul class="nav navbar-nav">
+    <li class="<?php echo (isset($_GET['q']) && $_GET['q'] == '') ? "active" : ""; ?>">
+      <a href="<?php echo web_root.'index.php'; ?>">Home</a>
+    </li>
+    <li class="<?php echo (isset($_GET['q']) && $_GET['q'] == 'person') ? "active" : ""; ?>">
+      <a href="<?php echo web_root.'index.php?q=person'; ?>">Beneficiaries</a>
+    </li>
+    <li class="<?php echo (isset($_GET['q']) && $_GET['q'] == 'contact') ? "active" : ""; ?>">
+      <a href="<?php echo web_root.'index.php?q=contact'; ?>">Contact Us</a>
+    </li>
+    <li class="<?php echo (isset($_GET['q']) && $_GET['q'] == 'about') ? "active" : ""; ?>">
+      <a href="<?php echo web_root.'index.php?q=about'; ?>">About Us</a>
+    </li>
+  </ul>
+</div>
+
+
+        
         <!--/.navbar-collapse --> 
     </div> 
    <!-- /.nav-collapse --> 
@@ -245,6 +271,17 @@ if (isset($_GET['category'])) {
                   <b>Map Section | <a  href="#" class="findgrave" style="color: red"><?php   
                        echo   (isset($_GET['name']) ?  $_GET['name'] : '' )?></a></b> 
                   </div>
+                  <div class="btn-group">
+                  <button type="submit" class="btn btn-default" name="route" id="routeButton"><i class="fa fa-route fw-fa"></i><b>Click to see Directions</b></button>
+
+<script>
+document.getElementById('routeButton').addEventListener('click', function() {
+  window.open('routing/index.html', '_blank');
+});
+</script>
+
+
+        </div>
                 </div>
                     <div class="panel-body"> 
                  <?php 
@@ -263,8 +300,9 @@ if (isset($_GET['category'])) {
       </div>
 
   </div> 
- <footer class="panel-footer" style="background-color:#000;color:white" >
-            <p align="left" >&copy; Cemetery Mapping and Information System</p>
+ <footer class="panel-footer" style="background-color:#A48861;color:white" >
+            <p align="center" >&copy;Dolefil Agrarian Reform Beneficiaries Cooperative</p>
+            <p align="center">Developed by: <a href="https://www.linkedin.com/in/loyd-abellera-104b10246/" style="color:white;" target="_blank">Ren Loyd Abellera</a><a href="" style="color:white;">, Sean Delambaca,</a><a href="" style="color:white;"> Rich Jahn Pabriga </a></p>
          </footer>
 <!-- end of page  -->
 

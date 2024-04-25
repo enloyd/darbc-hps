@@ -32,8 +32,8 @@
         <div class="list-group">
          <div class="well well-sm "><b> Location </b> </div>
             <ul >
-                <li><a href="index.php?q=person&location=BUENAVISTA LOOC CEMETERY">BUENAVISTA LOOC CEMETERY</a></li>
-                <li><a href="index.php?q=person&location=PUNTA LOOC CEMETERY">PUNTA LOOC CEMETERY</a></li> 
+                <li><a href="index.php?q=person&location=VILLAGE 8">VILLAGE 8</a></li>
+                <li><a href="index.php?q=person&location=PUNTA LOOC CEMETERY">VILLAGE 9</a></li> 
              </ul>
           </div> 
        </div> 
@@ -43,7 +43,7 @@
     <div class="list-group">
      <div class="well well-sm "><b> Map </b> </div>
         
-              <img src="img/map.png">
+              <img src="img/village8map.png">
             
       </div> 
    </div> 

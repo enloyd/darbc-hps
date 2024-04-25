@@ -12,12 +12,13 @@
  
 <style type="text/css">
  .item {
-   width: 100%; 
-
+   width: 100%;
+   height:100%
  }
  .item img  {
     width: 100%;
     height: 100%;
+    <!--object-fit: none;-->
  }
 </style>
 
@@ -33,17 +34,17 @@
   <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active"> 
-                    <img  src="<?php echo web_root ;?>img/thecross.jpg"   />  
+                    <img  src="<?php echo web_root ;?>img/banner_3.png"   />  
                 <div class="carousel-caption">
-                    <h2>DARBC HOUSING PROFILING SYSTEM</h2>
+                    <!--<h2>DARBC HOUSING PROFILING SYSTEM</h2>-->
                 </div>
             </div> 
              <div class="item"> 
-                    <img  src="<?php echo web_root ;?>img/IMG_20180309_210331.jpg"   />  
+                    <img  src="<?php echo web_root ;?>img/banner_2.png"   />  
                 
             </div> 
               <div class="item"> 
-                    <img  src="<?php echo web_root ;?>img/cemetery.jpg"   />  
+                    <img  src="<?php echo web_root ;?>img/banner_1.png"   />  
             </div> 
         </div>
 

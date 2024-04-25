@@ -38,7 +38,7 @@
 
 <link href="<?php echo web_root; ?>admin/css/ekko-lightbox.css" rel="stylesheet">
 <!-- <script type="text/javascript" language="javascript" src="<?php echo web_root; ?>js/fixnmix.js"></script> / -->
- <link rel="icon" href="<?php echo web_root; ?>img/favicon.ico" type="image/x-icon">  
+ <link rel="icon" href="<?php echo web_root; ?>img/darbc.png" type="image/x-icon">  
 
 <link rel="stylesheet" href="<?php echo web_root; ?>admin/select2/select2.min.css">
 </head>
@@ -88,7 +88,9 @@
                     <ul class="dropdown-menu dropdown-user"> 
                      <li><a href="<?php echo web_root; ?>admin/person/index.php?view=add"><i class="fa fa-users fa-fw"></i> Person</a>
                         </li>
-                        <li><a href="<?php echo web_root; ?>admin/category/index.php?view=add"><i class="fa fa-list fa-fw"></i> Section</a>
+                        <li><a href="<?php echo web_root; ?>admin/mapping/index.php?view=add"><i class="fa fa-list fa-fw"></i> Location</a>
+                        </li>
+                        <li><a href="<?php echo web_root; ?>admin/category/index.php?view=add"><i class="fa fa-list fa-fw"></i> Block</a>
                         </li>
                          </li>
                             <?php if ($_SESSION['U_ROLE']=='Administrator') {
@@ -142,27 +144,62 @@ $singleuser = $user->single_user($_SESSION['USERID']);
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                       <li>
-                             <a href="<?php echo web_root; ?>admin/person/index.php"><i class="fa fa-users fa-fw"></i>List of Beneficiary </a>
-           
-                        </li>
+                                            
                       
-                        <li>
-                             <a href="<?php echo web_root; ?>admin/category/index.php"><i class="fa fa-list fa-fw"></i>Section </a>
+                    <?php if ($_SESSION['U_ROLE']=='Administrator') {
+                            # code...
+                        ?> 
+                       <li>
+                             <a href="<?php echo web_root; ?>admin/person/index.php"><i class="fa fa-users fa-fw"></i>Beneficiaries</a>
            
                         </li>
                         
-                        <?php if ($_SESSION['U_ROLE']=='Administrator') {
-                            # code...
-                        ?> 
-                         <li>
-                             <a href="<?php echo web_root; ?>admin/import/index.php" ><i class="fa fa-gear fa-fw"></i>Import Excel File</a>
+                        <li>
+                             <a href="<?php echo web_root; ?>admin/downloadPDF/index.php" ><i class="fa fa-gear fa-fw"></i>Export File</a>
             
                         </li> 
+
+                        <li>
+                             <a href="<?php echo web_root; ?>admin/mapping/index.php"><i class="fa fa-list fa-fw"></i>Mapping </a>
+           
+                        </li>
+
                           <li>
                             <a href="<?php echo web_root; ?>admin/user/index.php" ><i class="fa fa-user fa-fw"></i> Manage Users </a>
                           
                         </li> 
+                         <li>
+                             <a href="<?php echo web_root; ?>admin/report/index.php" ><i class="fa fa-list fa-fw"></i>Report</a>
+            
+                        </li> 
+                        
+                 <?php }  ?>
+ 
+ 
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                                            
+                      
+                    <?php if ($_SESSION['U_ROLE']=='Staff') {
+                            # code...
+                        ?> 
+                       <li>
+                             <a href="<?php echo web_root; ?>admin/person/index.php"><i class="fa fa-users fa-fw"></i>Beneficiaries </a>
+           
+                        </li>
+                        
+                        <li>
+                             <a href="<?php echo web_root; ?>admin/downloadPDF/index.php" ><i class="fa fa-gear fa-fw"></i>Export File</a>
+            
+                        </li> 
+
                          <li>
                              <a href="<?php echo web_root; ?>admin/report/index.php" ><i class="fa fa-list fa-fw"></i>Report</a>
             

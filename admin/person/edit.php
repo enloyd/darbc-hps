@@ -26,7 +26,7 @@
                    <div class="form-group">
                     <div class="col-md-8">
                       <label class="col-md-4 control-label" for=
-                      "GRAVENO">Number:</label>
+                      "GRAVENO">Lot number:</label>
 
                       <div class="col-md-8">
                             <input type="hidden" name="PEOPLEID" value="<?php echo $p->PEOPLEID;?>">
@@ -49,13 +49,28 @@
                   </div> 
 
                   <div class="form-group">
-                  <div class="col-md-8">
-                      <label class="col-md-4 control-label" for="AGE">Age:</label>
-                      <div class="col-md-8">
-                          <input class="form-control input-sm" id="AGE" name="AGE" placeholder="Age" type="text" value="<?php echo $p->AGE ?>">
-                      </div>
-                  </div>
-              </div>
+                    <div class="col-md-8">
+                        <label class="col-md-4 control-label" for="BORNDATE">Date of Birth:</label>
+                        <div class="col-md-8">
+                            <div class="input-group" id="">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input id="datemask2" name="BORNDATE" value="<?php echo $p->BORNDATE ?>" type="text" class="form-control input-sm datemask2" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask onchange="calculateAge(this.value)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-8">
+                        <label class="col-md-4 control-label" for="AGE">Age:</label>
+                        <div class="col-md-8">
+                            <input class="form-control input-sm" id="AGE" name="AGE" placeholder="Age" type="text" value="<?php echo $p->AGE ?>">
+                        </div>
+                    </div>
+                </div>
+
 
               <div class="form-group">
                   <div class="col-md-8">
@@ -65,6 +80,31 @@
                       </div>
                   </div>
               </div>
+
+              <div class="form-group">
+                  <div class="col-md-8">
+                      <label class="col-md-4 control-label" for="CONTACT_NUMBER">Contact Number:</label>
+                      <div class="col-md-8">
+                          <input class="form-control input-sm" id="CONTACT_NUMBER" name="CONTACT_NUMBER" placeholder="Contact Number" type="text" value="<?php echo $p->CONTACT_NUMBER ?>">
+                      </div>
+                  </div>
+              </div>
+
+              <div class="form-group">
+                    <div class="col-md-8">
+                      <label class="col-md-4 control-label" for=
+                      "DIEDDATE">Joined:</label>
+
+                      <div class="col-md-8">
+                       <div class="input-group" id=""> 
+                          <div class="input-group-addon"> 
+                            <i class="fa fa-calendar"></i>
+                          </div>
+                          <input id="datemask2" name="DIEDDATE"  value="<?php echo $p->DIEDDATE ?>" type="text" class="form-control input-sm datemask2"   data-inputmask="'alias': 'mm/dd/yyyy'" data-mask >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
                <!--  <div class="form-group">
                     <div class="col-md-8">
@@ -93,11 +133,11 @@
                   <div class="form-group">
                     <div class="col-md-8">
                       <label class="col-md-4 control-label" for=
-                      "CATEGORIES">Section:</label>
+                      "CATEGORIES">Block:</label>
 
                       <div class="col-md-8">
                        <select class="form-control input-sm" name="CATEGORIES" id="CATEGORIES">
-                          <option value="None">Select Section</option>
+                          <option value="None">Select Block</option>
 
                             <?php
                             //Statement
@@ -123,53 +163,38 @@
                     </div>
                   </div>
 
-              <div class="form-group">
+                  <div class="form-group">
                     <div class="col-md-8">
                       <label class="col-md-4 control-label" for=
-                      "BORNDATE">Date of Birth:</label>
+                      "LOCATION">Location:</label>
 
                       <div class="col-md-8">
-                       <div class="input-group" id=""> 
-                          <div class="input-group-addon"> 
-                            <i class="fa fa-calendar"></i>
-                          </div>
-                          <input id="datemask2" name="BORNDATE"  value="<?php echo $p->BORNDATE ?>" type="text" class="form-control input-sm datemask2"   data-inputmask="'alias': 'mm/dd/yyyy'" data-mask >
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                   <div class="form-group">
-                    <div class="col-md-8">
-                      <label class="col-md-4 control-label" for=
-                      "DIEDDATE">Joined:</label>
-
-                      <div class="col-md-8">
-                       <div class="input-group" id=""> 
-                          <div class="input-group-addon"> 
-                            <i class="fa fa-calendar"></i>
-                          </div>
-                          <input id="datemask2" name="DIEDDATE"  value="<?php echo $p->DIEDDATE ?>" type="text" class="form-control input-sm datemask2"   data-inputmask="'alias': 'mm/dd/yyyy'" data-mask >
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                   <div class="form-group">
-                    <div class="col-md-8">
-                      <label class="col-md-4 control-label" for=
-                      "LOCATION">Lot Location:</label> 
-                      <div class="col-md-8">
-                             
-                      <select class="form-control input-sm" name="LOCATION" id="LOCATION">
+                       <select class="form-control input-sm" name="LOCATION" id="LOCATION">
                           <option value="None">Select Location</option>
-                          <option value="PALKAN" <?php echo ($p->LOCATION=='BUENAVISTA LOOC CEMETERY') ? 'SELECTED' : '';?>>PALKAN</option>
-                          <option value="AQUINO GATE" <?php echo ($p->LOCATION=='PUNTA LOOC CEMETERY') ? 'SELECTED' : '';?>>AQUINO GATE</option>
+
+                            <?php
+                            //Statement
+ 
+
+                           $mydb->setQuery("SELECT * FROM `tbllocation` where LOCATION = '".$p->LOCATION."'");
+                          $cur = $mydb->loadResultList();
+                        foreach ($cur as $result) {
+                          echo  '<option SELECTED  value='.$result->LOCATION.' >'.$result->LOCATION.'</option>';
+                          }
+
+
+                          $mydb->setQuery("SELECT * FROM `tbllocation` where LOCATION != '".$p->LOCATION."'");
+                          $cur = $mydb->loadResultList();
+                        foreach ($cur as $result) {
+                          echo  '<option  value='.$result->LOCATION.' >'.$result->LOCATION.'</option>';
+                          }
+                          ?>
+                         
           
                         </select> 
                       </div>
                     </div>
-                  </div> 
+                  </div>
              
                    
                   
@@ -191,3 +216,18 @@
       
 <!--/.fluid-container--> 
  </form>
+
+ <script>
+    function calculateAge(birthdate) {
+        var dob = new Date(birthdate);
+        var today = new Date();
+
+        var age = today.getFullYear() - dob.getFullYear();
+
+        if (today.getMonth() < dob.getMonth() || (today.getMonth() === dob.getMonth() && today.getDate() < dob.getDate())) {
+            age--;
+        }
+
+        document.getElementById("AGE").value = age;
+    }
+</script>
