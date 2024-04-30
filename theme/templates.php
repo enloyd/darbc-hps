@@ -194,6 +194,11 @@ background-size: none;-->
       <a href="<?php echo web_root.'index.php?q=about'; ?>">About Us</a>
     </li>
   </ul>
+  <!--login button-->
+  <a href="admin/login.php" class="btn btn-primary secret-login ml-auto" style="background-color: #A48861; position: absolute; top: 0; right: 0; margin-top:8.5px; border: none !important;">
+  <i class="fa fa-user"></i>
+</a>
+
 </div>
 
 
